@@ -24,5 +24,15 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
   
-    - run: echo "hello world"
+    - run: docker-compose -f docker-compose-build.yaml build --parallel
+    - run: docker tag udagram-api-feed inaz/udagram-api-feed:v1
+    - run: docker tag udagram-frontend:local inaz/udagram-frontend:v1
+    - run: docker tag udagram-user inaz/udagram-api-user:v1
+    - run: docker tag reverseproxy inaz/reverseproxy:v1
+    - run: docker push inaz/udagram-api-feed:v1
+    - run: docker push inaz/udagram-frontend:v1
+    - run: docker push inaz/udagram-api-user:v1
+    - run: docker push inaz/reverseproxy:v1
+    
+
     
