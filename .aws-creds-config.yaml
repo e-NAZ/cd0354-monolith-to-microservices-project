@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: udagram-aws
-data:
-  credentials: |
-    [default]
-    aws_access_key_id = AKIAWXEWPM6B3IPB5T6X
-    aws_secret_access_key = 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
